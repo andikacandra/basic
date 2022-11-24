@@ -17,6 +17,11 @@ import 'package:basic/ujian3/latihan_16.dart';
 import 'package:basic/ujian3/latihan_17.dart';
 import 'package:basic/ujian3/latihan_18.dart';
 import 'package:basic/ujian3/latihan_19.dart';
+import 'package:basic/ujian3/latihan_20.dart';
+import 'package:basic/ujian3/latihan_21.dart';
+import 'package:basic/ujian3/latihan_22.dart';
+import 'package:basic/ujian3/latihan_23.dart';
+import 'package:basic/ujian3/latihan_24.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
