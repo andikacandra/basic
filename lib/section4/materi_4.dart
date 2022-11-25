@@ -25,6 +25,9 @@ class MyScaffold extends StatefulWidget {
 class _MyScaffoldState extends State<MyScaffold> {
   bool hidePass = true;
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var heightStatusBar = MediaQuery.of(context).padding.top;
@@ -47,6 +50,7 @@ class _MyScaffoldState extends State<MyScaffold> {
             height: 20,
           ),
           TextField(
+            controller: emailController,
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
@@ -64,6 +68,7 @@ class _MyScaffoldState extends State<MyScaffold> {
             height: 10,
           ),
           TextField(
+            controller: passwordController,
             autocorrect: false,
             obscureText: hidePass,
             keyboardType: TextInputType.text,
@@ -93,7 +98,10 @@ class _MyScaffoldState extends State<MyScaffold> {
             height: 20,
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              print("Email : ${emailController.text}");
+              print("Password : ${passwordController.text}");
+            },
             child: Text("LOGIN"),
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
