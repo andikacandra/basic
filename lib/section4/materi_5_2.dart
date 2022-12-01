@@ -3,50 +3,43 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+// Belajar DefaultTabController
 // Belajar TabBar
 // Belajar Tab
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  late TabController whatsappController = TabController(length: 3, vsync: this);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("WhatsApp"),
-          backgroundColor: Colors.teal.shade600,
-          bottom: TabBar(
-            controller: whatsappController,
-            tabs: [
-              Tab(
-                child: Text("CHAT"),
-              ),
-              Tab(
-                child: Text("STATUS"),
-              ),
-              Tab(
-                child: Text("PANGGILAN"),
-              ),
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("WhatsApp"),
+            backgroundColor: Colors.teal.shade600,
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  child: Text("CHAT"),
+                ),
+                Tab(
+                  child: Text("STATUS"),
+                ),
+                Tab(
+                  child: Text("PANGGILAN"),
+                ),
+              ],
+            ),
+            actions: [
+              Icon(Icons.camera_alt_outlined),
+              SizedBox(width: 20),
+              Icon(Icons.search),
+              SizedBox(width: 20),
+              Icon(Icons.more_vert),
+              SizedBox(width: 10),
             ],
           ),
-          actions: [
-            Icon(Icons.camera_alt_outlined),
-            SizedBox(width: 20),
-            Icon(Icons.search),
-            SizedBox(width: 20),
-            Icon(Icons.more_vert),
-            SizedBox(width: 10),
-          ],
-        ),
-        body: TabBarView(
-          controller: whatsappController,
-          children: [
+          body: TabBarView(children: [
             Center(
               child: ListChat(),
             ),
@@ -56,12 +49,12 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             Center(
               child: Text("List Panggilan"),
             ),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Icon(Icons.message),
-          backgroundColor: Colors.teal.shade600,
+          ]),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            child: Icon(Icons.message),
+            backgroundColor: Colors.teal.shade600,
+          ),
         ),
       ),
     );
