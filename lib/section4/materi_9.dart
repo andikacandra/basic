@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            "https://picsum.photos/id/234/100/100"),
+                            "https://picsum.photos/id/453/150/150"),
                       ),
                     ),
                   ),
@@ -54,7 +54,40 @@ class Home extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(children: [
+                  ListTile(
+                    leading: Icon(Icons.account_circle_outlined),
+                    title: Text('Profile'),
+                    trailing: Text(
+                      '!',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                          fontSize: 22),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.credit_card),
+                    title: Text('Cards'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text('Setting'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.info_outline),
+                    title: Text('About'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.logout),
+                    title: Text('Logout'),
+                  ),
+                ]),
+              ),
+            ),
           ],
         ),
       ),
