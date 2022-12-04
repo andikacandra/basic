@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -22,15 +23,16 @@ class HomePage extends StatelessWidget {
       title: Row(
         children: [
           Text(
-            "candra_1216",
+            "candra_1216 ",
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ),
           Icon(
-            Icons.arrow_drop_down,
-            color: Colors.black,
+            Icons.verified,
+            color: Colors.blue,
+            size: 14,
           )
         ],
       ),
@@ -68,7 +70,7 @@ class HomePage extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '0,000',
+                          '21',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -78,7 +80,7 @@ class HomePage extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '0,000',
+                          '35M',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -88,7 +90,7 @@ class HomePage extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '0,000',
+                          '219',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -109,14 +111,18 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Andika Candra",
+                  "Andika Candra Perdana",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  "Lorem Ipsum is simply dummy text of the printing and type setting industry.",
+                  "Zero to Hero",
+                  textAlign: TextAlign.justify,
+                ),
+                Text(
+                  "Backend Developer",
                   textAlign: TextAlign.justify,
                 ),
                 SizedBox(
@@ -225,7 +231,7 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Icon(Icons.play_lesson_outlined),
+                  child: Icon(Icons.movie_filter_outlined),
                 ),
               ),
               Expanded(
@@ -236,6 +242,59 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 21,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, crossAxisSpacing: 2, mainAxisSpacing: 2),
+            itemBuilder: (context, index) {
+              return Image(
+                image: NetworkImage(
+                    "https://picsum.photos/id/${264 + index}/200/200"),
+              );
+            },
+          )
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
+        currentIndex: 4,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 30,
+              ),
+              label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                size: 30,
+              ),
+              label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.movie_filter_outlined,
+                size: 30,
+              ),
+              label: "Reels"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_bag_outlined,
+                size: 30,
+              ),
+              label: "Shop"),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                size: 30,
+              ),
+              label: "Person"),
         ],
       ),
     );
