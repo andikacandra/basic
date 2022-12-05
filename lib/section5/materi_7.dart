@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:basic/section5/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  List<Map<String, dynamic>> allUser = [];
+  List<UserModel> allUser = [];
 
   Future getAllUser() async {
     // await Future.delayed(Duration(seconds: 3));
@@ -25,7 +26,7 @@ class HomePage extends StatelessWidget {
         List data =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
         data.forEach((element) {
-          allUser.add(element);
+          allUser.add(UserModel.fromJson(element));
         });
       } else {
         print("Error : ${response.body}");
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Future Builder')),
+      appBar: AppBar(title: const Text('Model')),
       body: FutureBuilder(
           future: getAllUser(),
           builder: (context, snapshot) {
@@ -52,11 +53,11 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage(allUser[index]['avatar']),
+                      backgroundImage: NetworkImage(allUser[index].avatar),
                     ),
                     title: Text(
-                        "${allUser[index]['first_name']} ${allUser[index]['last_name']}"),
-                    subtitle: Text("${allUser[index]['email']}"),
+                        "${allUser[index].firstName} ${allUser[index].lastName}"),
+                    subtitle: Text("${allUser[index].email}"),
                   );
                 },
               );
