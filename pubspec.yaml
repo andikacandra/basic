@@ -13,17 +13,17 @@ dependencies:
   faker: ^2.0.0
   flutter:
     sdk: flutter
-  get: 4.6.5
+  get: ^4.6.5
   http: ^0.13.5
   intl: ^0.17.0
   introduction_screen: ^3.1.1
   lottie: ^2.0.0
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.11.0"
   flutter_lints: 2.0.1
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.11.0"
 
 flutter:
   uses-material-design: true
